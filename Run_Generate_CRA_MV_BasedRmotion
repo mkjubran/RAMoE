@@ -1,0 +1,10 @@
+#!/bin/bash
+clear
+
+listfilename='../ucfTrainTestlist/trainlist01.txt'
+JMSNoTextPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_NoTexture_Train01_QP40_MVSR16_MVRes8_A/'
+JMSOrigPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_OrigJM_Train01_QP40_MVSR16_MVRes8_A/'
+JMSOutPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMSize_Cropped_Train01_QP40_MVSR16_MVRes8_A/'
+
+python Generate_CRA_MV_BasedRmotion.py --vidlist=$listfilename --SNot_dir=$JMSNoTextPath --SOrig_dir=$JMSOrigPath --Out_dir=$JMSOutPath
+
