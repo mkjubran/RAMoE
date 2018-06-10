@@ -1,21 +1,36 @@
 import numpy as np
 import os, os.path, sys, subprocess, pdb
-import struct
+import struct,argparse
+
+
+parser = argparse.ArgumentParser(description='Optional app description')
+parser.add_argument('--vidlist', type=str, help='list of training/testing videos')
+parser.add_argument('--MV_dir', type=str, help='JMMV directory')
+parser.add_argument('--SNot_dir', type=str, help='JM NoTexture Stats directory')
+parser.add_argument('--SOrig_dir', type=str, help='JM Original Stats directory')
+parser.add_argument('--Out_dir', type=str, help='JM size of cropped videos output directory')
+args = parser.parse_args()
+
+listfilename  = args.vidlist
+JMMVPathInput = args.MV_dir
+JMSNoTextPath = args.SNot_dir
+JMSOrigPath   = args.SOrig_dir
+JMSOutPath    = args.Out_dir
 
 
 if __name__ == '__main__':
-  fname='../ucfTrainTestlist/trainlist01.txt'
-  JMMVPathInput ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMMV_Train01_QP40_MVSR16_MVRes8_NoStats/'
-  JMSNoTextPath ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_NoTexture_Train01_QP40_MVSR16_MVRes8_A/'
-  JMSOrigPath   ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_OrigJM_Train01_QP40_MVSR16_MVRes8_A/'
-  JMSOutPath    ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMSize_Cropped_Train01_QP40_MVSR16_MVRes8_A/'
+  #listfilename='../ucfTrainTestlist/trainlist01.txt'
+  #JMMVPathInput ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMMV_Train01_QP40_MVSR16_MVRes8_NoStats/'
+  #JMSNoTextPath ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_NoTexture_Train01_QP40_MVSR16_MVRes8_A/'
+  #JMSOrigPath   ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_OrigJM_Train01_QP40_MVSR16_MVRes8_A/'
+  #JMSOutPath    ='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMSize_Cropped_Train01_QP40_MVSR16_MVRes8_A/'
 
   # make out_dir if it doesn't exist
   if not os.path.exists(JMSOutPath):
      os.makedirs(JMSOutPath)
   
   cnt=0;
-  with open(fname) as f:
+  with open(listfilename) as f:
     filenames = f.readlines()
     filenames = [x.strip() for x in filenames]
   filenames = [x.split("/")[1].split('.')[0] for x in filenames] 
