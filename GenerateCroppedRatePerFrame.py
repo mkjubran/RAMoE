@@ -6,6 +6,12 @@ if __name__ == '__main__':
   JMSNoTextPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_NoTexture_Train01_QP40_MVSR16_MVRes8_A/'
   JMSOrigPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_OrigJM_Train01_QP40_MVSR16_MVRes8_A/'
   JMSOutPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMSize_Cropped_Train01_QP40_MVSR16_MVRes8_A/'
+  
+  fname='../ucfTrainTestlist/testlist01.txt'
+  JMSNoTextPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_NoTexture_Test01_QP40_MVSR16_MVRes8_A/'
+  JMSOrigPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMStats_OrigJM_Test01_QP40_MVSR16_MVRes8_A/'
+  JMSOutPath='../JMMV/JM_QP40_MVSR16_MVRes8_A_Done/JMSize_Cropped_Test01_QP40_MVSR16_MVRes8_A/'
+
   cnt=0;
   with open(fname) as f:
     filenames = f.readlines()
